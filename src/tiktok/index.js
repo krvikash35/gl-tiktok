@@ -137,11 +137,12 @@ function TickTockPage() {
 
   const checkForWinner = (boxIndex, boxes) => {
     //check horizontal
-    const rowIndex = Math.floor(boxIndex / size);
+    const rowIndex = Math.floor((boxIndex / size))*size;
     const rowArray = boxes.slice(rowIndex, rowIndex + size);
     const rowMatch = rowArray.every(b => b === currentPlayer);
+    console.log('horizonta', rowIndex, rowArray, rowMatch)
     if (rowMatch) {
-      setResult(`${currentPlayer} won tha match`);
+      return setResult(`${currentPlayer} won tha match`);
     }
 
     //check vertical
